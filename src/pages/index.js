@@ -1,9 +1,15 @@
-import Image from "next/image"
+import React from "react"
+import ReactDOM from "react-dom"
+import ActorData from "../component/Actor/ActorData"
+import TrendingActors from "../component/Actor/TrendingActors"
+// import ActorsCard from "@/component/Actors/ActorCard"
 
 export default function Home() {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      {/* <ActorData /> */}
+      <TrendingActors />
+      {/* <ActorsCard /> */}
     </div>
   )
 }
