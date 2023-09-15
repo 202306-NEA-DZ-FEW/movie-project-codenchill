@@ -1,10 +1,14 @@
 import NavBar from "@/components/Navbar/Navbar"
+import MovieInfo from "@/components/SingleMovieCard/MovieInfo"
 import Link from "next/link"
 
 export default function Home() {
   return ( 
 <>
     <NavBar />
+    <MovieInfo />
+   
+
 
     
     
