@@ -1,9 +1,24 @@
-import Image from "next/image"
+import NavBar from "@/components/Navbar/Navbar"
+import Link from "next/link"
 
 export default function Home() {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
-  )
+  return ( 
+<>
+    <NavBar />
+
+    
+    
+    {/* <Grid container spacing={3}>
+      {latestMovie.results.map((movie, index) => {
+        return (
+          <Grid key={index} item xs={4}>
+            <Link href={`/movies/${movie.id}`}>
+              <MovieCard {...movie} />
+            </Link>
+          </Grid>
+        )
+      })}
+    </Grid> */}
+    </>
+  ) 
 }
