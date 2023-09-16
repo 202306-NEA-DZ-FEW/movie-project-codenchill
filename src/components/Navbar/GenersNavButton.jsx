@@ -34,7 +34,7 @@ export default function GenresNavButton() {
           Genres
         </button>
         {showGenres && (
-          <ul className="absolute left-0 mt-2 space-y-1 bg-white border border-gray-300 max-h-48 overflow-y-auto">
+          <ul className="absolute left-0 mt-0 space-y-1 bg-white border border-gray-300 max-h-48 overflow-y-auto">
             {genres.map((genre) => (
               <li key={genre.id}>
                 <a
