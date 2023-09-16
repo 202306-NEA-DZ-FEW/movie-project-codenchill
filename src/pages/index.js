@@ -2,20 +2,18 @@ import { fetchData } from "@/Utility/api"
 import Image from "next/image"
 
 export default function Home({ data }) {
-  const imageUrl = "https://image.tmdb.org/t/p/original"
   return (
-    <div>
-      <div className="carousel w-full relative -z-1">
+    <div className="relative -z-1">
+      <div className="carousel w-full">
         {data.map((movie, index) => (
           <Image
             id={index}
             key={movie.id} // Remember to add a unique key when mapping
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-            className="w-full h-screen carousel-item"
+            className="carousel-item"
             alt="Movie backdrop"
-            width={0} // These values are set to 0, which means the browser will determine the size based on the aspect ratio.
-            height={0}
-            sizes="100vw"
+            width={500} // These values are set to 0, which means the browser will determine the size based on the aspect ratio.
+            height={500}
             quality={100}
           />
         ))}
