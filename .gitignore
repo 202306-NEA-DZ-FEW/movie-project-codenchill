@@ -37,6 +37,4 @@ next-env.d.ts
 
 *.md
 *.json
-*.config.js
-
-*.md
+*.config.json
