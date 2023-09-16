@@ -1,6 +1,11 @@
-import Footer from "@/components/Footer/Footer"
-import NewNav from "@/components/Navbar/Navbar"
+import Layout from "@/components/layout/layout"
 
 export default function Home() {
-  return <></>
+  return (
+    <>
+      <Layout>
+        <h1> Welcome to code and chill</h1>
+      </Layout>
+    </>
+  )
 }
