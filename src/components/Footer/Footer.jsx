@@ -10,8 +10,8 @@ export default function Footer() {
           Fatima Zohra <br /> Merzouk
         </>
       ),
-      linkedin: "https://www.linkedin.com/in/fatima-linkedin/",
-      github: "https://github.com/fatima-github",
+      linkedin: "https://www.linkedin.com/in/fatima-merzouk/",
+      github: "https://github.com/merzoukfatima",
     },
     {
       name: (
@@ -28,7 +28,7 @@ export default function Footer() {
           Katia <br /> Ghezali
         </>
       ),
-      linkedin: "https://www.linkedin.com/in/katia-linkedin/",
+      linkedin: "https://www.linkedin.com/in/katiaghezali/",
       github: "https://github.com/katia-github",
     },
     {
@@ -38,8 +38,8 @@ export default function Footer() {
           Bouras
         </>
       ),
-      linkedin: "https://www.linkedin.com/in/hadj-linkedin/",
-      github: "https://github.com/hadj-github",
+      linkedin: "https://www.linkedin.com/in/hadj-said-a577a8255/",
+      github: "https://github.com/Hadj-Said-Bouras",
     },
     {
       name: (
@@ -48,8 +48,8 @@ export default function Footer() {
           Babouche
         </>
       ),
-      linkedin: "https://www.linkedin.com/in/sami-linkedin/",
-      github: "https://github.com/sami-github",
+      linkedin: "https://www.linkedin.com/in/sami-babouche-4400551b0/",
+      github: "https://github.com/samiba6",
     },
     {
       name: (
@@ -58,8 +58,8 @@ export default function Footer() {
           Khenissa
         </>
       ),
-      linkedin: "https://www.linkedin.com/in/hadil-linkedin/",
-      github: "https://github.com/hadil-github",
+      linkedin: " https://www.linkedin.com/in/hadil-khenissa/   ",
+      github: "https://github.com/hadilkhe",
     },
   ]
 
