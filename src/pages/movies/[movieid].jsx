@@ -2,6 +2,7 @@ import React from "react"
 import TrailerPlayer from "@/components/SingleMovieCard/TrailerPlayer"
 import MovieInfo from "@/components/SingleMovieCard/MovieInfo"
 import Navbar from "@/components/Navbar/Navbar"
+import Image from "next/image"
 
 export function MovieDetailInfo({
   title,
@@ -14,11 +15,14 @@ export function MovieDetailInfo({
   release_date,
   runtime,
 }) {
+  console.log(production_companies)
   return (
     <>
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
-          <img
+          <Image
+            width={500}
+            height={500}
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt="Movie"
           />
@@ -47,12 +51,11 @@ export function MovieDetailInfo({
   )
 }
 
-export function MovieDetailPage({ movieInfo, trailerData }) {
+export default function MovieDetailPage({ movieInfo, trailerData }) {
   return (
     <>
-      <Navbar />
       <MovieDetailInfo {...movieInfo} />
-      <TrailerPlayer youtubeVideoId={trailerData.key} />
+      {/* <TrailerPlayer youtubeVideoId={trailerData.key} /> */}
     </>
   )
 }
@@ -83,12 +86,12 @@ export async function getServerSideProps({ params }) {
   }
   const trailerResponse = await fetch(trailerUrl, trailerOptions)
   const trailerData = await trailerResponse.json()
-
+  console.log(trailerData, "heyey")
   return {
     props: {
       movieInfo: movieInfoData,
-      trailerData:
-        trailerData.results.length > 0 ? trailerData.results[0] : null,
+      // trailerData:
+      //   trailerData.results.length > 0 ? trailerData.results[0] : null,
     },
   }
 }
