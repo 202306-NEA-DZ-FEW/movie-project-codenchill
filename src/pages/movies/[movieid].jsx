@@ -3,6 +3,7 @@ import TrailerPlayer from "@/components/SingleMovieCard/TrailerPlayer"
 import MovieInfo from "@/components/SingleMovieCard/MovieInfo"
 import Navbar from "@/components/Navbar/Navbar"
 import Image from "next/image"
+import Layout from "@/components/Layout/Layout"
 
 export function MovieDetailInfo({
   title,
@@ -17,7 +18,7 @@ export function MovieDetailInfo({
 }) {
   console.log(production_companies)
   return (
-    <>
+    <Layout>
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <Image
@@ -47,7 +48,7 @@ export function MovieDetailInfo({
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 

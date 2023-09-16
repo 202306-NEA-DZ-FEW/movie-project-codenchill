@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { fetchData } from "@/Utility/api"
+import Link from "next/link"
 
 export default function SearchBar() {
   const [query, setQuery] = useState("")
@@ -9,11 +10,16 @@ export default function SearchBar() {
   // Use a ref to keep track of the input element
   const inputRef = useRef(null)
 
+  const handleFocus = () => {
+    const array = [...searchResults].slice(0, 3)
+    setSearchResults(array)
+  }
+
   // Add an event listener to track when the input field loses focus
   useEffect(() => {
     const handleBlur = () => {
       // Check if the input value is empty
-      if (inputRef.current && inputRef.current.value === "") {
+      if (inputRef.current || inputRef.current.value === "") {
         // Clear the search results
         setSearchResults([])
       }
@@ -34,7 +40,7 @@ export default function SearchBar() {
 
   const search = async (e) => {
     e.preventDefault()
-    console.log("search")
+    // console.log("search")
     try {
       const actorSearchAPI = `search/person?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(
         query,
@@ -51,7 +57,7 @@ export default function SearchBar() {
       const actorNames = actorData.results.map((actor) => actor.name)
 
       // Combine titles and actor names into a single array
-      const combinedResults = [...titles, ...actorNames].slice(0, 4) // Get the first five results
+      const combinedResults = [...titles, ...actorNames].slice(0, 4) // Get the first four results
 
       setSearchResults(combinedResults)
     } catch (e) {
@@ -63,7 +69,7 @@ export default function SearchBar() {
   return (
     <div className="flex-1 flex v-screen relative">
       <div className="form-control relative">
-        <form onSubmit={search} onChange={search}>
+        <form onSubmit={search} onChange={search} onFocus={handleFocus}>
           <input
             type="text"
             placeholder="Search"
@@ -77,15 +83,17 @@ export default function SearchBar() {
       </div>
       {searchResults.length > 0 && (
         <div className="group">
-          <ul className="absolute left-0 mt-6 space-y-0 bg-white border border-gray-300 max-h-30 w-full">
+          <ul className="absolute left-0 mt-6 space-y-0 bg-white border border-gray-300 max-h-30 md:w-96">
             {searchResults.map((result, index) => (
-              <li
-                key={index}
-                className="block px-4 py-2 hover:bg-blue-500 hover:text-white"
-                style={{ width: "100%" }}
-              >
-                {result}
-              </li>
+              <Link key={index} href={"/movies"}>
+                {console.log("hey fatima")}
+                <li
+                  className="block px-4 py-2 hover:bg-blue-500 hover:text-white"
+                  style={{ width: "100%" }}
+                >
+                  {result}
+                </li>
+              </Link>
             ))}
           </ul>
         </div>

@@ -1,17 +1,20 @@
 import { fetchData } from "@/Utility/api"
+import Layout from "@/components/Layout/Layout"
 import MovieCard from "@/components/moviecard/movie-card"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function Home({ movies, genres }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 p-4 justify-center items-center">
-      {movies.map((movie, index) => (
-        <Link key={movie.id} href={`/movies/${movie.id}`}>
-          <MovieCard id={index} key={movie.id} {...movie} />
-        </Link>
-      ))}
-    </div>
+    <Layout>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 p-4 justify-center items-center">
+        {movies.map((movie, index) => (
+          <Link key={movie.id} href={`/movies/${movie.id}`}>
+            <MovieCard id={index} key={movie.id} {...movie} />
+          </Link>
+        ))}
+      </div>
+    </Layout>
   )
 }
 /*
