@@ -1,0 +1,23 @@
+/* fonts.css */
+/* Montserrat Regular (400) */
+@font-face {
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype"); /* Adjust the path */
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: bold; /* Specify the desired font weight */
+  font-style: normal; /* Specify the desired font style */
+  src: url("/fonts/Montserrat-Bold.ttf") format("truetype"); /* Adjust the path */
+}
+
+/* Montserrat Extra Bold (800) */
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 800; /* 800 represents Extra Bold */
+  font-style: normal;
+  src: url("/fonts/Montserrat-ExtraBold.ttf") format("truetype"); /* Adjust the path */
+}

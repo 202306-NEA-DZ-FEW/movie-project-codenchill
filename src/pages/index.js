@@ -2,20 +2,18 @@ import { fetchData } from "@/Utility/api"
 import MovieCard from "@/components/moviecard/movie-card"
 import Image from "next/image"
 
-export default function Home({ data }) {
-  console.log(data[0])
+export default function Home({ movies, genres }) {
   return (
-    <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
-      {data.map((movie, index) => (
-        <MovieCard
-          id={index}
-          key={movie.id}
-          title={movie.title}
-          releaseData={movie.release_date}
-          imageUrl={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-        />
+    // <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 p-4 justify-center items-center">
+      {movies.map((movie, index) => (
+        <MovieCard id={index} key={movie.id} {...movie} />
       ))}
-      {/*
+    </div>
+    // </ul >
+  )
+}
+/*
         // <Image
         //    // Remember to add a unique key when mapping
         //   src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
@@ -25,15 +23,25 @@ export default function Home({ data }) {
         //   height={500}
         //   quality={100}
         // />
-      ))}*/}
-    </ul>
-  )
-}
+      ))}*/
+
 export async function getServerSideProps() {
-  const data = await fetchData("trending/movie/day?language=en-US")
+  const moviesList = await fetchData("trending/movie/day?language=en-US")
+  const genresList = await fetchData("genre/movie/list?language=en")
+
+  const genres = genresList.genres.reduce((acc, genre) => {
+    acc[genre.id] = genre.name
+    return acc
+  }, {})
+
+  const movies = moviesList.results.map((movie) => {
+    const genreNames = movie.genre_ids.map((genreId) => genres[genreId])
+    return { ...movie, genre_ids: genreNames }
+  })
   return {
     props: {
-      data: data.results.slice(0, 5),
+      movies: movies.slice(0, 20),
+      genres: genres,
     },
   }
 }
