@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
+import Image from "next/image"
 
 export default function ActorDetails() {
   const router = useRouter()
@@ -44,5 +45,27 @@ export default function ActorDetails() {
   // Log actorDetails to the console
   console.log("Actor Details:", actorDetails)
 
-  return null // Return null as we're not rendering any UI
+  return (
+    <>
+      {/* <ActorCard {...actorDetails} /> */}
+      <div className="card card-side bg-base-100 shadow-xl">
+        <figure>
+          <Image
+            src={`https://image.tmdb.org/t/p/w500${actorDetails.profile_path}`}
+            alt="Movie"
+            width={300}
+            height={300}
+          />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">New movie is released!</h2>
+          <p>Click the button to watch on Jetflix app.</p>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary">Watch</button>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+  // Return null as we're not rendering any UI
 }

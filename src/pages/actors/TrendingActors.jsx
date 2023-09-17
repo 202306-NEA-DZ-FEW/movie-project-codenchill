@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
-import ActorData from "../Actor/ActorData"
+import ActorCard from "@/components/actorcard"
 
 export default function TrendingActors() {
   const [actors, setActors] = useState([])
@@ -47,7 +47,7 @@ export default function TrendingActors() {
           <li key={actor.id}>
             {/* Use Link to navigate to ActorDetails */}
             <Link href={`/actor/${actor.id}`}>
-              <ActorData actor={actor} />
+              <ActorCard {...actor} />
             </Link>
           </li>
         ))}
