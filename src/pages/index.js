@@ -33,12 +33,13 @@ const Home = () => {
   return (
     <div className="movie-list">
       {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          title={movie.title}
-          releaseDate={movie.release_date}
-          imageUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        />
+        // <MovieCard
+        //   key={movie.id}
+        //   title={movie.title}
+        //   releaseDate={movie.release_date}
+        //   imageUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        // />
+        <MovieCard {...movie} key={movie.id} />
       ))}
     </div>
   )
