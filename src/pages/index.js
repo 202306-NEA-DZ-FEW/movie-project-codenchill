@@ -7,5 +7,6 @@ export default function Home() {
         <h1> Welcome to code and chill</h1>
       </Layout>
     </>
+
   )
 }
