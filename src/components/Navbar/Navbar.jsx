@@ -17,6 +17,7 @@ export default function Navbar() {
       {/* Right Section (Genres, Movies, Actors) */}
       <div className="flex-none">
         {/* Dropdown Menu for Genres */}
+
         <GenresNavButton />
 
         {/* Dropdown Menu for Movies */}
