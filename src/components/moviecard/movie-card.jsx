@@ -3,7 +3,7 @@ import Image from "next/image"
 const MovieCard = (movie) => {
   const imageUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
   const title = movie.title
-  const genres = movie.genre_ids
+  const genres = movie.genres
   //const releaseDate = movie.release_date.substring(0, 4)
   const renderGenres = () => {
     return genres.map((genre, index) => (
@@ -11,7 +11,7 @@ const MovieCard = (movie) => {
         key={index}
         className="btn rounded-full font-montserrat text-sm mt-2 px-2 py-1"
       >
-        {genre}
+        {genre.name}
       </button>
     ))
   }

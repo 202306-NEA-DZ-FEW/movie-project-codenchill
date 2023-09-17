@@ -13,14 +13,16 @@ export default function MovieCategory({ category, movies }) {
 
 export async function getServerSideProps(context) {
   const { category } = context.params
-
-  const moviesList = await fetchData(`movie/${category}`)
+  let moviesList
+  if (category != "latest") {
+    moviesList = await fetchData(`movie/${category}`)
+  } else {
+    moviesList = await fetchData(`/trending/movie/day?language=en-US`)
+  }
   const movieIds = moviesList.results.map((movie) => movie.id)
-
   const movies = await Promise.all(
     movieIds.map((id) => fetchData(`movie/${id}`)),
   )
-
   return {
     props: {
       category,

@@ -21,14 +21,16 @@ export async function getServerSideProps(context) {
     acc[genre.name] = genre.id
     return acc
   }, {})
-  const moviesList = await fetchData(
-    `discover/movie?with_genres=${genres[`${genre}`]}`,
+  const fetchGenre = genres[`${genre}`]
+  const moviesList = await fetchData(`discover/movie?with_genres=${fetchGenre}`)
+  const movieIds = moviesList.results.map((movie) => movie.id)
+  const movies = await Promise.all(
+    movieIds.map((id) => fetchData(`movie/${id}`)),
   )
-
   return {
     props: {
       genre,
-      movies: moviesList.results,
+      movies: movies,
     },
   }
 }

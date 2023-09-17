@@ -3,29 +3,24 @@ import Layout from "@/components/Layout/Layout"
 
 import MovieList from "@/components/movielist/movielist"
 
-export default function Home(movies) {
+export default function Home({ category, movies }) {
   return (
     <Layout>
-      <MovieList {...movies} />
+      <h1>{category} Movies</h1>
+      <MovieList movies={movies} />
     </Layout>
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const moviesList = await fetchData("trending/movie/day?language=en-US")
-  const genresList = await fetchData("genre/movie/list?language=en")
-
-  const genres = genresList.genres.reduce((acc, genre) => {
-    acc[genre.id] = genre.name
-    return acc
-  }, {})
-
-  const movies = moviesList.results.map((movie) => {
-    const genreNames = movie.genre_ids.map((genreId) => genres[genreId])
-    return { ...movie, genre_ids: genreNames }
-  })
+  const movieIds = moviesList.results.map((movie) => movie.id)
+  const movies = await Promise.all(
+    movieIds.map((id) => fetchData(`movie/${id}`)),
+  )
   return {
     props: {
+      category: "Latest",
       movies: movies.slice(0, 20),
     },
   }
