@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
-import ActorCard from "@/components/actorcard"
+import ActorCard from "@/components/actorcard/actorcard"
 
 export default function TrendingActors() {
   const [actors, setActors] = useState([])
