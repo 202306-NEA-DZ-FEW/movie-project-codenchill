@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { fetchData } from "@/Utility/api"
+import Link from "next/link"
 
 export default function GenresNavButton() {
   const [genres, setGenres] = useState([])
   const [showGenres, setShowGenres] = useState(false)
-
   useEffect(() => {
     const fetchGenres = async () => {
       try {
@@ -37,12 +37,12 @@ export default function GenresNavButton() {
           <ul className="absolute left-0 mt-0 space-y-1 bg-white border border-gray-300 max-h-48 overflow-y-auto">
             {genres.map((genre) => (
               <li key={genre.id}>
-                <a
-                  href={`/genre/${genre.id}`}
+                <Link
+                  href={`/movies/genre/${genre.name}`}
                   className="block px-4 py-2 hover:bg-blue-500 hover:text-white"
                 >
                   {genre.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

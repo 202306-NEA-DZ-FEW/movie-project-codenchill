@@ -68,7 +68,7 @@ export default function Footer() {
   const membersGroup2 = teamMembers.slice(3, 6)
 
   return (
-    <footer className="footer p-2 bg-base-200 text-base-content fixed bottom-0 w-full">
+    <footer className="footer p-2 bg-base-200 text-base-content bottom-0 w-full">
       <h2 className="text-lg font-semibold mb-2">Team Members</h2>
       <div className="grid grid-cols-8 gap-4">
         {membersGroup1.map((member, index) => (
