@@ -1,3 +1,4 @@
+// trailerPlayer.jsx
 import React from "react";
 
 export default function TrailerPlayer({ youtubeVideoId }) {

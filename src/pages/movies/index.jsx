@@ -44,7 +44,11 @@ export default function Home() {
     <>
       <Navbar />
       {selectedMovie && <MovieInfo {...selectedMovie} />}
-      {selectedMovie && <TrailerPlayer youtubeVideoId={selectedMovie.youtubeVideoId} />}
+
+      {/* Check if selectedMovie has a trailer and render the TrailerPlayer */}
+      {selectedMovie && selectedMovie.youtubeVideoId && (
+        <TrailerPlayer youtubeVideoId={selectedMovie.youtubeVideoId} />
+      )}
     </>
   );
 }
