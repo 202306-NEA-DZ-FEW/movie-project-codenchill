@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
-import ActorCard from "@/components/actorcard/actorcard"
+import Layout from "@/components/Layout/Layout"
+import ActorCard from "@/components/actorcard"
 
 export default function TrendingActors() {
   const [actors, setActors] = useState([])
@@ -40,7 +41,7 @@ export default function TrendingActors() {
   }, [])
 
   return (
-    <div>
+    <Layout>
       <h1>Trending Actors</h1>
       <ul>
         {actors.map((actor) => (
@@ -52,6 +53,6 @@ export default function TrendingActors() {
           </li>
         ))}
       </ul>
-    </div>
+    </Layout>
   )
 }

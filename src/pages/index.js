@@ -1,5 +1,6 @@
 import { fetchData } from "@/Utility/api"
 import Layout from "@/components/Layout/Layout"
+
 import MovieList from "@/components/movielist/movielist"
 
 export default function Home(movies) {
@@ -29,4 +30,3 @@ export async function getServerSideProps(context) {
     },
   }
 }
-
