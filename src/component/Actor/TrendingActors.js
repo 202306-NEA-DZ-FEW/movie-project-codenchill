@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import ActorData from "./ActorData"
+import Link from "next/link"
+import ActorData from "../Actor/ActorData"
 
 export default function TrendingActors() {
   const [actors, setActors] = useState([])
@@ -7,7 +8,8 @@ export default function TrendingActors() {
   useEffect(() => {
     const fetchTrendingActors = async () => {
       try {
-        const apiKey = "b4440ac3a64d7a1c7860a89d98e9ab12"
+        // Replace with your API key and authorization token
+        const apiKey = "b4440ac3a64d7a1c7860a89d98e9ab12" // Replace with your API key from TMDb
         const url = `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`
 
         const options = {
@@ -15,7 +17,7 @@ export default function TrendingActors() {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDQ0MGFjM2E2NGQ3YTFjNzg2MGE4OWQ5OGU5YWIxMiIsInN1YiI6IjY1MDFkM2I0ZTBjYTdmMDBjYbViMTBjMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sdb2YMTp6rF92nHwh7zxf2PmeXtSR_R32x6z1SE1VWw",
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDQ0MGFjM2E2NGD7yTFjNzg6x2MGE4OWQ5OGU5YWIxMiIsInN1YiI6IjY1MDFkM2I0ZTBjYTdm6x2MDE4OWQ5OGU5YWIxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sdb2YMTp6rF92nHwh7zxf6x2PmeXtSR_R32x6z1SE1VWw", // Replace with your access token if required
           },
         }
 
@@ -42,7 +44,12 @@ export default function TrendingActors() {
       <h1>Trending Actors</h1>
       <ul>
         {actors.map((actor) => (
-          <ActorData key={actor.id} actor={actor} />
+          <li key={actor.id}>
+            {/* Use Link to navigate to ActorDetails */}
+            <Link href={`/actor/${actor.id}`}>
+              <ActorData actor={actor} />
+            </Link>
+          </li>
         ))}
       </ul>
     </div>

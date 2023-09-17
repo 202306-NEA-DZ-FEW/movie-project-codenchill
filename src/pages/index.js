@@ -1,15 +1,12 @@
+// pages/index.js
 import React from "react"
-import ReactDOM from "react-dom"
-import ActorData from "../component/Actor/ActorData"
-import TrendingActors from "../component/Actor/TrendingActors"
-// import ActorsCard from "@/component/Actors/ActorCard"
+import TrendingActors from "../component/Actor/TrendingActors" // Import TrendingActors component
 
 export default function Home() {
   return (
     <div>
-      {/* <ActorData /> */}
+      <h1>Home Page</h1>
       <TrendingActors />
-      {/* <ActorsCard /> */}
     </div>
   )
 }
