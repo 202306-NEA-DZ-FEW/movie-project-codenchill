@@ -1,11 +1,12 @@
-// pages/index.js
-import React from "react"
-import TrendingActors from "./actors/TrendingActors" // Import TrendingActors component
+import Layout from "@/components/layout/layout"
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <Layout>
+        <h1> Welcome to code and chill</h1>
+      </Layout>
+    </>
+
   )
 }
