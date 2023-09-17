@@ -8,7 +8,7 @@ export default function MovieNavButton() {
   }
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left z-10">
       <div className="group">
         <button
           onClick={toggleDropdown} // Toggle the dropdown on button click
@@ -18,7 +18,7 @@ export default function MovieNavButton() {
         </button>
         {/* Movies dropdown content */}
         {showDropdown && ( // Show the dropdown if showDropdown is true
-          <ul className="absolute left-0 mt-2 space-y-1 bg-white border border-gray-300">
+          <ul className="absolute left-0 mt-2 space-y-1 bg-white border border-gray-300 z-10">
             <li>
               <Link
                 href={"/movies/category/top_rated"}

@@ -25,7 +25,7 @@ export default function GenresNavButton() {
   }
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left z-10">
       <div className="group">
         <button
           onClick={toggleGenresDropdown}
