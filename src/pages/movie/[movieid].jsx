@@ -3,7 +3,7 @@ import TrailerPlayer from "@/components/SingleMovieCard/TrailerPlayer"
 import Image from "next/image"
 import { fetchData } from "@/Utility/api"
 import Layout from "@/components/Layout/Layout"
-import MovieList from "@/components/movielist/movielist"
+import MovieList from "@/components/MovieList/movielist"
 import ActorList from "@/components/actorlist/actorlist"
 
 export function MovieDetailInfo({ movie, director }) {

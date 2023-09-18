@@ -7,18 +7,20 @@ import MovieNavButton from "./MovieNavButton"
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100">
+    <nav className="rounded m-4 bg-blue-50 flex flex-row p-2 ">
       {/* Logo and Website Title */}
-      <LogoNTitles />
+      <div className="basis-1/4"> <LogoNTitles /> </div>
+      
 
       {/* Centered Search Bar */}
-      <SearchBar />
+      <div className="basis-1/2">  <SearchBar /> </div>
+     
 
       {/* Right Section (Genres, Movies, Actors) */}
-      <div className="flex-none">
+      <div className="basis-1/4 flex-row-reverse flex">
         {/* Dropdown Menu for Genres */}
-
-        <GenresNavButton />
+         
+        <GenresNavButton  />
 
         {/* Dropdown Menu for Movies */}
         <MovieNavButton />
@@ -26,6 +28,6 @@ export default function Navbar() {
         {/* Actors Link */}
         <ActorsNavButton />
       </div>
-    </div>
+    </nav>
   )
 }

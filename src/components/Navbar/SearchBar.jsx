@@ -67,13 +67,13 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="flex-1 flex v-screen relative">
-      <div className="form-control relative">
+    <div className=" v-screen  relative w-auto">
+      <div className="form-control  relative ">
         <form onSubmit={search} onChange={search} onFocus={handleFocus}>
           <input
             type="text"
-            placeholder="Search"
-            className="input input-bordered w-full md:w-96 h-10"
+            placeholder="I'm looking for ..."
+            className="input rounded-full w-full italic text-center  h-8"
             name="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -83,7 +83,7 @@ export default function SearchBar() {
       </div>
       {searchResults.length > 0 && (
         <div className="group">
-          <ul className="absolute left-0 mt-6 space-y-0 bg-white border border-gray-300 max-h-30 md:w-96">
+          <ul className=" z-10 absolute left-0 mt-6 space-y-0 bg-white border border-gray-300 max-h-30 w-full ">
             {searchResults.map((result, index) => (
               <Link key={index} href={"/movies"}>
                 {console.log("hey fatima")}

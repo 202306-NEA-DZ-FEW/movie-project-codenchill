@@ -7,18 +7,18 @@ const MovieCard = (movie) => {
   //const releaseDate = movie.release_date.substring(0, 4)
   const renderGenres = () => {
     return genres.map((genre, index) => (
-      <button
+      <span
         key={index}
-        className="btn rounded-full font-montserrat text-sm mt-2 px-2 py-1"
+        className="badge  badge-md bg-custom-color font-montserrat text-white"
       >
         {genre.name}
-      </button>
+      </span>
     ))
   }
   return (
     <div>
-      <div className="relative w-auto h-auto">
-        <div className="absolute bottom-0 left-0 right-0 top-auto h-full w-fit bg-gradient-to-t from-red-500 via-transparent to-transparent opacity-0 transition rounded-lg duration-300 ease-in-out hover:opacity-70">
+      <div className="relative inline-block">
+        <div className="absolute space-x-1 inset-0 bg-gradient-to-t from-red-500 via-transparent to-transparent opacity-0 transition rounded-lg duration-300 ease-in-out hover:opacity-70">
           {renderGenres()}
         </div>
         <Image
