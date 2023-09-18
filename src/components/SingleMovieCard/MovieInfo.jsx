@@ -1,5 +1,5 @@
 // MovieInfo.jsx
-import React from "react";
+import React from "react"
 
 export default function MovieInfo({
   title,
@@ -28,11 +28,9 @@ export default function MovieInfo({
           <p>Language: {original_language}</p>
           <p>
             Production Companies:{" "}
-            {production_companies && production_companies.length > 0 ? (
-              production_companies.map((company) => company.name).join(", ")
-            ) : (
-              "Not available"
-            )}
+            {production_companies && production_companies.length > 0
+              ? production_companies.map((company) => company.name).join(", ")
+              : "Not available"}
           </p>
           <p>IMDB Rating: {imdb_id}</p>
           <p>Popularity: {popularity}</p>
@@ -44,5 +42,5 @@ export default function MovieInfo({
         </div>
       </div>
     </>
-  );
+  )
 }

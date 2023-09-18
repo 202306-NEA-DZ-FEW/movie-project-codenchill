@@ -1,13 +1,13 @@
 // trailerPlayer.jsx
-import React from "react";
+import React from "react"
 
 export default function TrailerPlayer({ youtubeVideoId }) {
   if (!youtubeVideoId) {
-    return <p>No trailer available</p>;
+    return <p>No trailer available</p>
   }
 
   // Construct the YouTube embed URL
-  const youtubeUrl = `https://www.youtube.com/embed/${youtubeVideoId}`;
+  const youtubeUrl = `https://www.youtube.com/embed/${youtubeVideoId}`
 
   return (
     <div className="trailer-player">
@@ -19,5 +19,5 @@ export default function TrailerPlayer({ youtubeVideoId }) {
         allowFullScreen
       ></iframe>
     </div>
-  );
+  )
 }
