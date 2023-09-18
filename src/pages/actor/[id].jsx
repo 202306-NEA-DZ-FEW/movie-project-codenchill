@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Image from "next/image"
+import Layout from "@/components/Layout/Layout"
 
 export default function ActorDetails() {
   const router = useRouter()
@@ -46,7 +47,7 @@ export default function ActorDetails() {
   console.log("Actor Details:", actorDetails)
 
   return (
-    <>
+    <Layout>
       {/* <ActorCard {...actorDetails} /> */}
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
@@ -65,7 +66,7 @@ export default function ActorDetails() {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   )
   // Return null as we're not rendering any UI
 }

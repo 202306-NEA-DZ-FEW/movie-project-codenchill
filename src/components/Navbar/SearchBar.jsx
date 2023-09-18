@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { fetchData } from "@/Utility/api"
+import Link from "next/link"
 
 export default function SearchBar() {
   const [query, setQuery] = useState("")
@@ -84,13 +85,15 @@ export default function SearchBar() {
         <div className="group">
           <ul className="absolute left-0 mt-6 space-y-0 bg-white border border-gray-300 max-h-30 md:w-96">
             {searchResults.map((result, index) => (
-              <li
-                key={index}
-                className="block px-4 py-2 hover:bg-blue-500 hover:text-white"
-                style={{ width: "100%" }}
-              >
-                {result}
-              </li>
+              <Link key={index} href={"/movies"}>
+                {console.log("hey fatima")}
+                <li
+                  className="block px-4 py-2 hover:bg-blue-500 hover:text-white"
+                  style={{ width: "100%" }}
+                >
+                  {result}
+                </li>
+              </Link>
             ))}
           </ul>
         </div>
