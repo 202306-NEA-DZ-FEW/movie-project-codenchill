@@ -1,5 +1,5 @@
 import React from "react"
-
+import Image from "next/image"
 export default function MovieInfo({
   title,
   original_language,
@@ -15,10 +15,12 @@ export default function MovieInfo({
     <>
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
-          <img
+          <Image
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             className="w-full h-screen"
             alt={title}
+            width={200}
+            height={200}
           />
         </figure>
         <div className="card-body">
