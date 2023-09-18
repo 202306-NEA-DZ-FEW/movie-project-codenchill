@@ -3,7 +3,9 @@ import MovieInfo from "@/components/SingleMovieCard/MovieInfo"
 import TrailerPlayer from "@/components/SingleMovieCard/TrailerPlayer"
 import Navbar from "@/components/Navbar/Navbar"
 
-export default function Home() {
+
+export default function MoviePage() {
+
   const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState(null)
 

@@ -21,9 +21,10 @@ export async function getServerSideProps(context) {
     acc[genre.name] = genre.id
     return acc
   }, {})
-  const moviesList = await fetchData(
-    `discover/movie?with_genres=${genres[`${genre}`]}`,
-  )
+
+  const fetchGenre = genres[genre]
+  const moviesList = await fetchData(`discover/movie?with_genres=${fetchGenre}`)
+
 
   return {
     props: {
