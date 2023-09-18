@@ -2,14 +2,15 @@
 import { fetchData } from "@/Utility/api"
 import ActorCard from "@/components/Actorcard/ActorCard"
 import MovieList from "@/components/movielist/movielist"
+import Layout from "@/components/Layout/Layout"
 
 export default function Actor({ actor, movies }) {
   return (
-    <div>
+    <Layout>
       <ActorCard {...actor} />
       <p>Movie Credits</p>
       <MovieList movies={movies} />
-    </div>
+    </Layout>
   )
 }
 
