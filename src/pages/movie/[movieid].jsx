@@ -13,9 +13,13 @@ export function MovieDetailInfo({ movie, director }) {
         <div className="w-full md:w-1/2 text-center">
           <h2 className="text-4xl font-bold">{movie.title}</h2>
           <div className="mt-2">
-            <button className="bg-red-500 text-white px-2 py-1 rounded-lg">
+            <button className="bg-red-500 text-white  px-2 py-1 rounded-lg">
+              {movie.release_date} 
+            </button>
+            <button className="bg-red-500 text-white ml-2 px-2 py-1 rounded-lg">
               {movie.runtime} minutes
             </button>
+           
             <button className="bg-red-500 text-white ml-2 px-2 py-1 rounded-lg">
               {movie.spoken_languages[0] != undefined
                 ? movie.spoken_languages[0].english_name
@@ -34,18 +38,28 @@ export function MovieDetailInfo({ movie, director }) {
           <div className="text-xl my-10">{movie.overview}</div>
           <p className="text-xl">Director: {director}</p>
           {movie.production_companies && movie.production_companies.length > 0 && (
-            <p className="text-xl">
-              Production Companies:{" "}
-              {movie.production_companies
-                .map((company) => company.name)
-                .join(", ")}
-            </p>
+            <div className="text-xl">
+              <p>Production Companies:</p>
+              <ul className="list-disc pl-6">
+                {movie.production_companies.map((company) => (
+                  <li key={company.id} className="flex items-center space-x-2">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
+                      alt={company.name}
+                      className="w-8 h-8"
+                    />
+                    <span>{company.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </div>
     </div>
   );
 }
+
 
 export default function MovieDetailPage({
   movieInfo,
@@ -56,8 +70,10 @@ export default function MovieDetailPage({
 }) {
   return (
     <Layout>
-      <div className="bg-gradient-to-r bg-base-content p-4">
+      <div className="bg-gradient-to-r bg-base-content p-4 ">
         <MovieDetailInfo movie={movieInfo} director={director} />
+        <br />
+        <div className=" mx-auto max-w-screen-md">
         <TrailerPlayer
           youtubeVideoId={
             trailerData != "unavailable" ? (
@@ -67,13 +83,14 @@ export default function MovieDetailPage({
             )
           }
         />
+        </div>
         <div className="text-center mt-8">
-          <h2 className="text-2xl font-semibold">Related Movies</h2>
+          <h2 className="text-2xl font-semibold text-white">Related Movies</h2>
           
           <div className="mx-auto w-full max-w-screen-lg">
             <MovieList movies={movies} />
           </div>
-          <h2 className="text-2xl font-semibold ">Featured Actors</h2>
+          <h2 className="text-2xl font-semibold text-white ">Featured Actors</h2>
           <div className="mx-auto w-full max-w-screen-lg">
             <ActorList actors={actors} />
           </div>
