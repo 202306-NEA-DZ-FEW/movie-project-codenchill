@@ -77,7 +77,12 @@ export default function SearchBar() {
   return (
     <div className="flex-1 flex v-screen relative ">
       <div className="form-control relative ">
-        <form onSubmit={search} onChange={search} autoComplete="off">
+        <form
+          onFocus={search}
+          onSubmit={search}
+          onChange={search}
+          autoComplete="off"
+        >
           <input
             type="text"
             placeholder="Search"
