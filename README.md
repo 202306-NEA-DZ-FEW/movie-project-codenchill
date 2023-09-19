@@ -42,18 +42,18 @@ You will be able to practice:
 
 The following thoughts are traps; steer away from them:
 
-- *`This project is huge! I don't think I'm going to be able to do it.`* From your previous experiences, you know for a fact that everything starts big in the beginning but when you plan things and work on them they usually are not as big and scary as you thought.
-- *`I don't know how to use [insert tool here] how am I going to deal with all of this?`* Again, don't worry. You have dealt with so many unknown things and just like you learned how to use them, you will be able to learn how to use any tool you want as long as you check its documentation.
-- *`[Right from the beginning] How am I going to fix the bonus topic?`* DON'T GO THERE UNLESS YOU FINISH THE MAIN REQUIREMENTS FIRST!
-- *`[After spending hours on an issue to fix it without reading the documentation or searching the issue on google] I will spend extra hours on this until I fix it`* This is a trap. You should always read the documentation and search for the solution.
-- *`I'm so tired now!!!😩 I've been trying to fix this bug for 3 hours!!!`* In times like these, consider steping away from your computer and doing something else like playing with your pet, watching something funny, looking outside your window and enjoying cool air.
+- _`This project is huge! I don't think I'm going to be able to do it.`_ From your previous experiences, you know for a fact that everything starts big in the beginning but when you plan things and work on them they usually are not as big and scary as you thought.
+- _`I don't know how to use [insert tool here] how am I going to deal with all of this?`_ Again, don't worry. You have dealt with so many unknown things and just like you learned how to use them, you will be able to learn how to use any tool you want as long as you check its documentation.
+- _`[Right from the beginning] How am I going to fix the bonus topic?`_ DON'T GO THERE UNLESS YOU FINISH THE MAIN REQUIREMENTS FIRST!
+- _`[After spending hours on an issue to fix it without reading the documentation or searching the issue on google] I will spend extra hours on this until I fix it`_ This is a trap. You should always read the documentation and search for the solution.
+- _`I'm so tired now!!!😩 I've been trying to fix this bug for 3 hours!!!`_ In times like these, consider steping away from your computer and doing something else like playing with your pet, watching something funny, looking outside your window and enjoying cool air.
 
 #### Confidence boosters
 
 In times of doubts remember these:
 
-- *`This project will be a huge addition to my already big list of projects that will increase my future prospects of getting hired`*
-- *`The internet is FULL of resources that any one can use to learn about anything.`*
-- *`I've worked on 3 projects. They seemed difficult in the beginning but I still aced them. I'm awesome!`*
-- *`3 months ago, my biggest issues and worries are how to write the correct class name to change an HTML element's color. Now, I'm dealing with bigger things because I've learned so much more. My current worries and issues will be my HTML and CSS of my future.`*
-- *`I'm not alone on this team. There are 2 more people who got my back.`*
+- _`This project will be a huge addition to my already big list of projects that will increase my future prospects of getting hired`_
+- _`The internet is FULL of resources that any one can use to learn about anything.`_
+- _`I've worked on 3 projects. They seemed difficult in the beginning but I still aced them. I'm awesome!`_
+- _`3 months ago, my biggest issues and worries are how to write the correct class name to change an HTML element's color. Now, I'm dealing with bigger things because I've learned so much more. My current worries and issues will be my HTML and CSS of my future.`_
+- _`I'm not alone on this team. There are 2 more people who got my back.`_
