@@ -15,7 +15,9 @@ export default function ActorCard(actor) {
         />
       </div>
       <div className="items-center w-200 h-200">
-        <p className="font-montserrat text-sm mt-2">{actor.name}</p>
+        <p className="font-montserrat uppercase font-bold text-white text-md mt-2">
+          {actor.name}
+        </p>
       </div>
     </div>
   )
