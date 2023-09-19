@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import { fetchData } from "@/Utility/api"
 import Link from "next/link"
 
@@ -6,32 +6,6 @@ export default function SearchBar() {
   const [query, setQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [error, setError] = useState(null)
-
-  // Use a ref to keep track of the input element and the results list
-  const inputRef = useRef(null)
-
-  // Add an event listener to track when the input field loses focus
-  useEffect(() => {
-    const handleBlur = () => {
-      // Check if the input value is empty
-      if (inputRef.current || inputRef.current.value === "") {
-        // Clear the search results
-        setSearchResults([])
-      }
-    }
-
-    // Attach the event listener to the input element
-    if (inputRef.current) {
-      inputRef.current.addEventListener("blur", handleBlur)
-    }
-
-    // Cleanup the event listener when the component unmounts
-    return () => {
-      if (inputRef.current) {
-        inputRef.current.removeEventListener("blur", handleBlur)
-      }
-    }
-  }, [])
 
   const search = async (e) => {
     e.preventDefault()
@@ -77,12 +51,7 @@ export default function SearchBar() {
   return (
     <div className="flex-1 flex v-screen relative ">
       <div className="form-control relative ">
-        <form
-          onFocus={search}
-          onSubmit={search}
-          onChange={search}
-          autoComplete="off"
-        >
+        <form onSubmit={search} onChange={search} autoComplete="off">
           <input
             type="text"
             placeholder="Search"
@@ -90,7 +59,6 @@ export default function SearchBar() {
             name="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            ref={inputRef}
           />
         </form>
       </div>
