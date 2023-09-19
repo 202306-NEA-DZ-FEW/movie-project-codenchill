@@ -6,7 +6,10 @@ import Layout from "@/components/Layout/Layout"
 export default function MovieCategory({ category, movies }) {
   return (
     <Layout>
-      <h1>{category} Movies</h1>
+      <div className="text-neutral-50 text-4xl font-semibold font-['Montserrat'] leading-loose">
+        {category.replace(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\\/-]/g, " ")} Movies
+      </div>
+      <div className="w-64 h-px border-4 border-red-400"></div>
       <MovieList movies={movies} />
     </Layout>
   )

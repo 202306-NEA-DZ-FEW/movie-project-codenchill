@@ -24,14 +24,19 @@ export default function Home({ category, initialMovies }) {
 
   return (
     <Layout>
-      <h1>{category} Movies</h1>
-      <MovieList movies={movies} />
-      <button
-        className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded mx-auto mt-4 block"
-        onClick={fetchNextPage}
-      >
-        Load More
-      </button>
+      <div className="bg-gradient-to-r bg-base-content p-4 ">
+        <div className="text-neutral-50 text-4xl font-semibold font-['Montserrat'] leading-loose">
+          {category.replace(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\\/-]/g, " ")} Movies
+        </div>
+        <div className="w-64 h-px border-4 border-red-400"></div>
+        <MovieList movies={movies} />
+        <button
+          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded mx-auto mt-4 block"
+          onClick={fetchNextPage}
+        >
+          Load More
+        </button>
+      </div>
     </Layout>
   )
 }

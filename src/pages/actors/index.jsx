@@ -4,7 +4,10 @@ import ActorList from "@/components/actorlist/actorlist"
 export default function Actors({ actors }) {
   return (
     <Layout>
-      <h1>Actors</h1>
+      <div className="text-neutral-50 text-4xl font-semibold font-['Montserrat'] leading-loose">
+        Actors
+      </div>
+      <div className="w-64 h-px border-4 border-red-400"></div>
       <ActorList actors={actors} />
     </Layout>
   )

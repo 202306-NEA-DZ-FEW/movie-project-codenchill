@@ -7,7 +7,11 @@ export default function MovieGenre({ genre, movies }) {
   return (
     <Layout>
       <div>
-        <h1>{genre} Movies</h1>
+        <div className="text-neutral-50 text-4xl font-semibold font-['Montserrat'] leading-loose pl-4">
+          {genre} Movies
+          <div className="w-64 h-px border-2 border-red-400"></div>
+        </div>
+
         <MovieList movies={movies} />
       </div>
     </Layout>
