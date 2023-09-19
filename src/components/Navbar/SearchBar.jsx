@@ -7,6 +7,8 @@ export default function SearchBar() {
   const [searchResults, setSearchResults] = useState([])
   const [error, setError] = useState(null)
 
+  // Use a ref to keep track of the input element and the results list
+
   const search = async (e) => {
     e.preventDefault()
     // console.log("search")
