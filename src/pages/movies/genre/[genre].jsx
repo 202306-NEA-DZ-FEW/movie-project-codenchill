@@ -1,6 +1,6 @@
 // pages/movies/[category].js
 import { fetchData } from "@/Utility/api"
-import MovieList from "/src/components/movielist/movielist" // Create a MovieList component for displaying the list of movies
+import MovieList from "@/components/MovieList/movielist"
 import Layout from "@/components/Layout/Layout"
 
 export default function MovieGenre({ genre, movies }) {
