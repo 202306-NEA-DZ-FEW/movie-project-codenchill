@@ -1,6 +1,6 @@
 // pages/movies/[category].js
 import { fetchData } from "@/Utility/api"
-import MovieList from "@/components/movielist/movielist"
+import MovieList from "@/components/MovieList/movielist"
 import Layout from "@/components/Layout/Layout"
 import Image from "next/image"
 
