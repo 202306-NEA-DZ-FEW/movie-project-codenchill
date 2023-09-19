@@ -55,9 +55,18 @@ export function MovieDetailInfo({ movie, director }) {
             </div>
           )}
         </div>
+        <Image
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt="Movie"
+          width={300}
+          height={450}
+          className="mx-auto mt-4 rounded-lg"
+        />
       </div>
+
     </div>
   );
+
 }
 
 
@@ -98,6 +107,7 @@ export default function MovieDetailPage({
       </div>
     </Layout>
   );
+
 }
 
 export async function getServerSideProps({ params }) {
@@ -125,3 +135,4 @@ export async function getServerSideProps({ params }) {
     },
   };
 }
+
