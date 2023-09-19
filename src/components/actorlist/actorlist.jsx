@@ -1,6 +1,8 @@
 import React from "react"
 import Link from "next/link"
 import ActorCard from "../Actorcard/ActorCard"
+import actorcard from "../actorcard/actorcard"
+
 
 export default function ActorList({ actors }) {
   return (

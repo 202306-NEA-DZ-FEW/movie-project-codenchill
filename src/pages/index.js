@@ -2,7 +2,7 @@ import { useState } from "react"
 import { fetchData } from "@/Utility/api"
 import Layout from "@/components/Layout/Layout"
 
-import MovieList from "@/components/movielist/movielist"
+import MovieList from "@/components/MovieList/movielist"
 
 export default function Home({ category, initialMovies }) {
   const [movies, setMovies] = useState(initialMovies)
