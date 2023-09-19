@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import { fetchData } from "@/Utility/api"
 import Link from "next/link"
 
@@ -6,6 +6,9 @@ export default function SearchBar() {
   const [query, setQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [error, setError] = useState(null)
+
+
+  // Use a ref to keep track of the input element and the results list
 
 
   const search = async (e) => {
@@ -65,7 +68,6 @@ export default function SearchBar() {
             name="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-
           />
         </form>
       </div>
@@ -76,6 +78,7 @@ export default function SearchBar() {
               <li
                 key={index}
                 className="block px-4 py-2 hover:bg-custom-color hover:text-white"
+
                 style={{ width: "100%" }}
                 onClick={() => {
                   // Update searchResults to an empty array
