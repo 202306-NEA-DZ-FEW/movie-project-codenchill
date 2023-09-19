@@ -7,57 +7,40 @@ export default function SearchBar() {
   const [searchResults, setSearchResults] = useState([])
   const [error, setError] = useState(null)
 
-  // Use a ref to keep track of the input element
-  const inputRef = useRef(null)
-
-  const handleFocus = () => {
-    const array = [...searchResults].slice(0, 3)
-    setSearchResults(array)
-  }
-
-  // Add an event listener to track when the input field loses focus
-  useEffect(() => {
-    const handleBlur = () => {
-      // Check if the input value is empty
-      if (inputRef.current || inputRef.current.value === "") {
-        // Clear the search results
-        setSearchResults([])
-      }
-    }
-
-    // Attach the event listener to the input element
-    if (inputRef.current) {
-      inputRef.current.addEventListener("blur", handleBlur)
-    }
-
-    // Cleanup the event listener when the component unmounts
-    return () => {
-      if (inputRef.current) {
-        inputRef.current.removeEventListener("blur", handleBlur)
-      }
-    }
-  }, [])
 
   const search = async (e) => {
     e.preventDefault()
     // console.log("search")
     try {
+      const removedSpecialChars = query.replace(
+        /[!@#$%^&*()_+{}\[\]:;<>,.?~\\\/-]/g,
+        "",
+      )
+
+      // Replace spaces with plus symbols
+      const cleanedQuery = removedSpecialChars.replace(/\s+/g, "+")
       const actorSearchAPI = `search/person?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(
-        query,
+        cleanedQuery,
       )}`
       const movieSearchAPI = `search/movie?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(
-        query,
+        cleanedQuery,
       )}`
-
       const actorData = await fetchData(actorSearchAPI)
       const movieData = await fetchData(movieSearchAPI)
-
       // Extract titles and actor names from the results
-      const titles = movieData.results.map((movie) => movie.title)
-      const actorNames = actorData.results.map((actor) => actor.name)
+      const movieArray = movieData.results.map((movie) => ({
+        title: movie.title,
+        id: movie.id,
+        type: "movie",
+      }))
+      const actorArray = actorData.results.map((actor) => ({
+        title: actor.name,
+        id: actor.id,
+        type: "actor",
+      }))
 
       // Combine titles and actor names into a single array
-      const combinedResults = [...titles, ...actorNames].slice(0, 4) // Get the first four results
+      const combinedResults = [...movieArray, ...actorArray].slice(0, 4) // Get the first four results
 
       setSearchResults(combinedResults)
     } catch (e) {
@@ -67,33 +50,49 @@ export default function SearchBar() {
   }
 
   return (
-    <div className=" v-screen  relative w-auto">
-      <div className="form-control  relative ">
-        <form onSubmit={search} onChange={search} onFocus={handleFocus}>
+    <div className=" v-screen  w-auto relative ">
+      <div className="form-control relative ">
+        <form
+          onFocus={search}
+          onSubmit={search}
+          onChange={search}
+          autoComplete="off"
+        >
           <input
             type="text"
             placeholder="I'm looking for ..."
-            className="input rounded-full w-full italic text-center  h-8"
+            className="input input-bordered w-full h-10 px-4 py-2 rounded-full italic text-center border border-gray-500 justify-center items-center gap-12 inline-flex"
             name="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            ref={inputRef}
+
           />
         </form>
       </div>
       {searchResults.length > 0 && (
-        <div className="group">
-          <ul className=" z-10 absolute left-0 mt-6 space-y-0 bg-white border border-gray-300 max-h-30 w-full ">
+        <div className="group ">
+          <ul className="px-4 z-20 py-2 rounded-[32px] absolute left-0 mt-6 space-y-0 bg-white border border-gray-300 max-h-30 w-full">
             {searchResults.map((result, index) => (
-              <Link key={index} href={"/movies"}>
-                {console.log("hey fatima")}
-                <li
-                  className="block px-4 py-2 hover:bg-blue-500 hover:text-white"
-                  style={{ width: "100%" }}
+              <li
+                key={index}
+                className="block px-4 py-2 hover:bg-custom-color hover:text-white"
+                style={{ width: "100%" }}
+                onClick={() => {
+                  // Update searchResults to an empty array
+                  setSearchResults([])
+                  setQuery("")
+                }}
+              >
+                <Link
+                  href={
+                    result.type === "movie"
+                      ? `/movie/${result.id}`
+                      : `/actor/${result.id}`
+                  }
                 >
-                  {result}
-                </li>
-              </Link>
+                  {result.type === "movie" ? result.title : result.name}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

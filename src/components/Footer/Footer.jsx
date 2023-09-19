@@ -7,7 +7,7 @@ export default function Footer() {
     {
       name: (
         <>
-          Fatima Zohra <br /> Merzouk
+          Fatima Zohra  Merzouk
         </>
       ),
       linkedin: "https://www.linkedin.com/in/fatima-merzouk/",
@@ -16,7 +16,7 @@ export default function Footer() {
     {
       name: (
         <>
-          Hachem <br /> Bouhadede
+          Hachem  Bouhadede
         </>
       ),
       linkedin: "https://www.linkedin.com/in/hachem-bouhadede/",
@@ -25,7 +25,7 @@ export default function Footer() {
     {
       name: (
         <>
-          Katia <br /> Ghezali
+          Katia  Ghezali
         </>
       ),
       linkedin: "https://www.linkedin.com/in/katiaghezali/",
@@ -34,7 +34,7 @@ export default function Footer() {
     {
       name: (
         <>
-          Hadj <br />
+          Hadj 
           Bouras
         </>
       ),
@@ -44,7 +44,7 @@ export default function Footer() {
     {
       name: (
         <>
-          Sami <br />
+          Sami 
           Babouche
         </>
       ),
@@ -54,7 +54,7 @@ export default function Footer() {
     {
       name: (
         <>
-          Hadil <br />
+          Hadil 
           Khenissa
         </>
       ),
@@ -68,51 +68,33 @@ export default function Footer() {
   const membersGroup2 = teamMembers.slice(3, 6)
 
   return (
-    <footer className="footer p-2 bg-base-200 text-base-content bottom-0 w-full">
+    <footer className="footer p-2  inset-0 relative bg-gradient-to-t from-red-500 opacity-80 via-transparent to-transparent opacity-80 py-6 w-full">
       <h2 className="text-lg font-semibold mb-2">Team Members</h2>
-      <div className="grid grid-cols-8 gap-4">
-        {membersGroup1.map((member, index) => (
-          <div key={index} className="flex items-center mb-2">
-            <span className="mr-2">{member.name}</span>
-            <a
+      <div className="grid  relative items-center  grid-cols-6 gap-4 z-10">
+        {teamMembers.map((member, index) => (
+            <div className="items-center">
+            <p className="text-white text-center text-base uppercase font-montserrat text-32 font-normal leading-none">{member.name}</p>
+            <div className=" text-white text-center mt-2 text-2xl">  <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
+              className="text-blue-500 mr-2 hover:text-red-500"
             >
               <FontAwesomeIcon icon={faLinkedin} />
-            </a>
+            </a> 
+            |
             <a
               href={member.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-gray-900 ml-1"
+              className="text-gray-700 hover:text-gray-900 ml-2"
             >
               <FontAwesomeIcon icon={faGithub} />
-            </a>
-          </div>
-        ))}
-        {membersGroup2.map((member, index) => (
-          <div key={index} className="flex items-center mb-2">
-            <span className="mr-2">{member.name}</span>
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-            </a>
-            <a
-              href={member.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-gray-900 ml-1"
-            >
-              <FontAwesomeIcon icon={faGithub} />
-            </a>
-          </div>
-        ))}
+            </a> </div>
+           
+          </div>))}
+
+
       </div>
     </footer>
   )
