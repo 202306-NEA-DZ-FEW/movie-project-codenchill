@@ -7,8 +7,11 @@ import MovieList from "@/components/MovieList/movielist";
 import ActorList from "@/components/actorlist/actorlist";
 
 export function MovieDetailInfo({ movie, director }) {
+  // Calculate the rating
+  const rating = (movie.vote_average * 100) / movie.vote_count;
+
   return (
-    <div className="flex flex-wrap mx-auto max-w-7xl bg-gradient-to-r from-gray-800 to-red-500 p-4 rounded-lg shadow-lg text-white mt-8 flex flex-wrap space-x-0 space-y-2 md:space-x-4">
+    <div className="flex flex-wrap mx-auto max-w-7xl bg-gradient-to-r from-gray-800 to-red-500 p-4 rounded-lg shadow-lg text-white mt-8 flex flex-wrap space-x-0 space-y-2 md:space-x-4 relative">
       <div className="flex flex-wrap mx-auto max-w-5xl"> 
         <div className="w-full md:w-1/2 text-center">
           <h2 className="text-4xl font-bold">{movie.title}</h2>
@@ -19,7 +22,6 @@ export function MovieDetailInfo({ movie, director }) {
             <button className="bg-red-500 text-white ml-2 px-2 py-1 rounded-lg">
               {movie.runtime} minutes
             </button>
-           
             <button className="bg-red-500 text-white ml-2 px-2 py-1 rounded-lg">
               {movie.spoken_languages[0] != undefined
                 ? movie.spoken_languages[0].english_name
@@ -33,6 +35,13 @@ export function MovieDetailInfo({ movie, director }) {
             height={450}
             className="mx-auto mt-4 rounded-lg"
           />
+       
+          <button
+            className="bg-gray-500  absolute top-2 right-2 px-2 py-1 rounded-lg"
+            style={{ zIndex: 1 }}
+          >
+            {` ${rating.toFixed(1)}/10`} 
+          </button>
         </div>
         <div className="w-full md:w-1/2 mt-4 md:mt-40 text-left pl-0">
           <div className="text-xl my-10">{movie.overview}</div>
